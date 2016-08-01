@@ -1,0 +1,16 @@
+{
+  "name": "ubike-crawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hsiao-Hsuan Hsu",
+  "license": "ISC",
+  "dependencies": {
+    "iconv-lite": "^0.4.13",
+    "request": "^2.74.0",
+    "xml2js": "^0.4.17"
+  }
+}
