@@ -10,12 +10,11 @@ exports.run = function (callback) {
         }, 
         function (error, response, body) {
             // body is the decompressed response body
-            console.log('server encoded the data as: ' + (response.headers['content-encoding'] || 'identity'));
+            // console.log('server encoded the data as: ' + (response.headers['content-encoding'] || 'identity'));
 
             var res = []
             parseXML(body, function (err, result) {
                 var stations = result.BIKEStationData.BIKEStation[0].Station;
-                var item;
                 if (stations instanceof Object) {
                     for (var x = 0; x < stations.length; x++) {
                         var singleOne = stations[x];

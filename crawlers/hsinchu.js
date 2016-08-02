@@ -10,8 +10,25 @@ exports.run = function (callback) {
         function (error, response, body) {
             // body is the decompressed response body
             // console.log('server encoded the data as: ' + (response.headers['content-encoding'] || 'identity'));
-            // var json = JSON.parse(body);
 
+            var s = JSON.stringify(body)
+            //var s = body.toString();
+            // preserve newlines, etc - use valid JSON
+            s = s.replace(/\\n/g, "\\n")  
+                 .replace(/\\'/g, "\\'")
+                 .replace(/\\"/g, '\\"')
+                 .replace(/\\&/g, "\\&")
+                 .replace(/\\r/g, "\\r")
+                 .replace(/\\t/g, "\\t")
+                 .replace(/\\b/g, "\\b")
+                 .replace(/\\f/g, "\\f");
+            // remove non-printable and other non-valid JSON chars
+            s = s.replace(/[\u0000-\u0019]+/g,""); 
+            var obj = JSON.parse(s);
+            var res = []
+                for (var item in obj) {
+                    console.log(item);   
+                }
             callback(body);
         }
     )

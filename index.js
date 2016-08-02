@@ -33,14 +33,14 @@ crawlerTaichung.run(function (result) {
 });
 */
 
-/*
 // Hsinchu
 crawlerHsinchu.run(function (result) {
     console.log(result);
 });
-*/
 
+/*
 // Kaohsiung
 crawlerKaohsiung.run(function (result) {
     console.log(result);
 });
+*/
