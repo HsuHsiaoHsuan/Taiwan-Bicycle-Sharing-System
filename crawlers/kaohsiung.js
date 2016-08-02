@@ -18,22 +18,24 @@ exports.run = function (callback) {
                 var item;
                 if (stations instanceof Object) {
                     for (var x = 0; x < stations.length; x++) {
-                        console.log(stations[x]);
+                        var singleOne = stations[x];
+                        var item = {
+                            id: singleOne.StationID[0],
+                            name: singleOne.StationName[0],
+                            address: singleOne.StationAddress[0],
+                            lat: singleOne.StationLat[0],
+                            lon: singleOne.StationLon[0],
+                            bike: singleOne.StationNums1[0],
+                            park: singleOne.StationNums2[0]
+                        };
+                        res.push(item);
                     }
                 } else {
                     console.log("it's not");
                 }
+
+                callback(res);
             });
-            //var json = JSON.parse(body);
-
-            //var result = [];
-            //for (var key in json.retVal) {
-            //    if (json.retVal.hasOwnProperty(key)) {
-            //        result.push(json.retVal[key]);
-            //    }
-            //}
-
-            //callback(result);
         }
     )
     .on('data', function (data) {
