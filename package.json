@@ -9,7 +9,6 @@
   "author": "Hsiao-Hsuan Hsu",
   "license": "ISC",
   "dependencies": {
-    "iconv-lite": "^0.4.13",
     "request": "^2.74.0",
     "xml2js": "^0.4.17"
   }
