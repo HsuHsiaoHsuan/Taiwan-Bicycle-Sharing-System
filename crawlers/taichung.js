@@ -15,7 +15,18 @@ exports.run = function (callback) {
             var result = [];
             for (var key in json.retVal) {
                 if (json.retVal.hasOwnProperty(key)) {
-                    result.push(json.retVal[key]);
+                    var singleOne = json.retVal[key]
+                    var item = {
+                        id: singleOne.sno,
+                        name: singleOne.sna,
+                        address: singleOne.ar,
+                        lat: singleOne.lat,
+                        lon: singleOne.lng,
+                        bike: singleOne.sbi,
+                        park: singleOne.bemp,
+                        alive: singleOne.act
+                    };
+                    result.push(item);
                 }
             }
 

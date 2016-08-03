@@ -10,9 +10,27 @@ exports.run = function (callback) {
         function (error, response, body) {
             // body is the decompressed response body
             // console.log('server encoded the data as: ' + (response.headers['content-encoding'] || 'identity'));
-            // var json = JSON.parse(body);
+            var json = JSON.parse(body);
 
-            callback(body);
+            var result = [];
+            for (var key in json) {
+                if (json.hasOwnProperty(key)) {
+                    var singleOne = json[key];
+                    var item = {
+                        id: singleOne.sno,
+                        name: singleOne.sna,
+                        address: singleOne.ar,
+                        lat: singleOne.lat,
+                        lon: singleOne.lng,
+                        bike: singleOne.sbi,
+                        park: singleOne.bemp,
+                        alive: singleOne.act
+                    };
+                    result.push(item);
+                }
+            }
+
+            callback(result);
         }
     )
     .on('data', function (data) {

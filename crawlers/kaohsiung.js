@@ -25,7 +25,8 @@ exports.run = function (callback) {
                             lat: singleOne.StationLat[0],
                             lon: singleOne.StationLon[0],
                             bike: singleOne.StationNums1[0],
-                            park: singleOne.StationNums2[0]
+                            park: singleOne.StationNums2[0],
+                            alive: 2
                         };
                         res.push(item);
                     }
