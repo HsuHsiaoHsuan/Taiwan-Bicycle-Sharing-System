@@ -5,10 +5,12 @@ var crawlerTaichung =  require('./crawlers/taichung.js');
 var crawlerHsinchu =   require('./crawlers/hsinchu.js');
 var crawlerKaohsiung = require('./crawlers/kaohsiung.js');
 
+/*
 // Taipei
 crawlerTaipei.run(function (result) {
     console.log(result);
 });
+*/
 
 /*
 // New Taipei
@@ -31,12 +33,10 @@ crawlerTaichung.run(function (result) {
 });
 */
 
-/*
 // Hsinchu
 crawlerHsinchu.run(function (result) {
     console.log(result);
 });
-*/
 
 /*
 // Kaohsiung

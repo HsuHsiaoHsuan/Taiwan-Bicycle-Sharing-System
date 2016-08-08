@@ -11,6 +11,28 @@ exports.run = function (callback) {
             // body is the decompressed response body
             // console.log('server encoded the data as: ' + (response.headers['content-encoding'] || 'identity'));
 
+            console.log("~~~~");
+
+            var s = body.toString();
+            // preserve newlines, etc - use valid JSON
+            s = s.replace(/\\n/g, "\\n")  
+                 .replace(/\\'/g, "\\'")
+                 .replace(/\\"/g, '\\"')
+                 .replace(/\\&/g, "\\&")
+                 .replace(/\\r/g, "\\r")
+                 .replace(/\\t/g, "\\t")
+                 .replace(/\\b/g, "\\b")
+                 .replace(/\\f/g, "\\f")
+                 .replace(/\0/g, "");
+            // remove non-printable and other non-valid JSON chars
+            s = s.replace(/[\u0000-\u0019]+/g,""); 
+
+            var obj = JSON.parse(s);
+            for (var x = 0; x < obj.length; x++) {
+                var item = obj[x];
+		console.log(obj);
+            }
+/*
             var s = JSON.stringify(body)
             //var s = body.toString();
             // preserve newlines, etc - use valid JSON
@@ -21,7 +43,8 @@ exports.run = function (callback) {
                  .replace(/\\r/g, "\\r")
                  .replace(/\\t/g, "\\t")
                  .replace(/\\b/g, "\\b")
-                 .replace(/\\f/g, "\\f");
+                 .replace(/\\f/g, "\\f")
+                 .replace(/\0/g, "");
             // remove non-printable and other non-valid JSON chars
             s = s.replace(/[\u0000-\u0019]+/g,""); 
             var obj = JSON.parse(s);
@@ -30,6 +53,7 @@ exports.run = function (callback) {
                     console.log(item);   
                 }
             callback(body);
+ */
         }
     )
     .on('data', function (data) {
