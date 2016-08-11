@@ -99,7 +99,7 @@ setInterval(getTaichung, 20000);
 // setInterval(getHsinchu, 3000);
 setInterval(getKaohsiung, 20000);
 
-http.listen(8081, function() {
+http.listen(5566, function() {
     console.log("Server start in port 8081");
 });
 
