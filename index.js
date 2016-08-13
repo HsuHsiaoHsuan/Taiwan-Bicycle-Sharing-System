@@ -100,7 +100,7 @@ setInterval(getTaichung, 20000);
 setInterval(getKaohsiung, 20000);
 
 http.listen(5566, function() {
-    console.log("Server start in port 8081");
+    console.log("Server start in port 5566");
 });
 
 /*
